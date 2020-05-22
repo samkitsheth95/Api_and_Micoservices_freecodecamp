@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-app.use('/api', require('./timestamp'));
+app.use('/api', require('./apis'));
 
 
 module.exports = app;
