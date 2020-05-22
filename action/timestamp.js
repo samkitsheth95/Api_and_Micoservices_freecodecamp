@@ -1,11 +1,12 @@
 function timestampHandler(req, res) {
-  let date = new Date(req.params['0']);
+  const param = req.params['0'].substring(1) || '';
+  let date = new Date(param);
   if (date.toString() !== 'Invalid Date') {
     res.status(200).json({ unix: date.getTime(), utc: date.toUTCString() });
-  } else if (Number(req.params['0'])) {
-    date = new Date(Number(req.params['0']));
+  } else if (Number(param)) {
+    date = new Date(Number(param));
     res.status(200).json({ unix: date.getTime(), utc: date.toUTCString() });
-  } else if (req.params['0'] === '') {
+  } else if (param === '') {
     date = new Date();
     res.status(200).json({ unix: date.getTime(), utc: date.toUTCString() });
   } else {
