@@ -15,7 +15,7 @@ async function genEntry() {
 
 async function urlshortnercreatorHandler(req, res) {
   try {
-    const originalUrl = req.params['0'].substring(4);
+    const originalUrl = req.params['0'].substring(3);
     const shortUrl = await genEntry();
     if (urlValidRegex.test(originalUrl)) {
       urlsaver.create({ originalUrl, shortUrl }).then(() => {
