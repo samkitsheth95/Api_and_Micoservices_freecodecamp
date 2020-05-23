@@ -1,13 +1,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const multer = require('multer');
 
 const app = express();
-
 
 dotenv.config();
 const port = process.env.PORT || 3000;
 app.use(cors({ optionSuccessStatus: 200 }));
+app.use(multer().any());
+app.use('/public', express.static(`${process.cwd()}/public`));
 
 app.use(require('./routes'));
 
