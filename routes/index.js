@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-const { getoriginalurlHandler } = require('../action/urlshortner');
+const { getOriginalUrlHandler } = require('../action/urlshortner');
 
 app.get('/', (req, res) => {
   res.sendFile(`${process.cwd()}/views/index.html`);
@@ -10,6 +10,6 @@ app.get('/', (req, res) => {
 
 app.use('/api', require('./apis'));
 
-app.get(/[a-zA-Z0-9]{8}$/, getoriginalurlHandler);
+app.get(/[a-zA-Z0-9]{8}$/, getOriginalUrlHandler);
 
 module.exports = app;

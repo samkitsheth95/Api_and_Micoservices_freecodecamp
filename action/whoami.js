@@ -1,7 +1,7 @@
-function whoamiHandler(req, res) {
+function whoAmIHandler(req, res) {
   res.status(200).json({ ipaddress: req.headers.host, language: req.headers['accept-language'], software: req.headers['user-agent'] });
 }
 
 module.exports = {
-  whoamiHandler,
+  whoAmIHandler,
 };

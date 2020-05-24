@@ -1,4 +1,4 @@
-function timestampHandler(req, res) {
+function timeStampHandler(req, res) {
   const param = req.params['0'].substring(1) || '';
   let date = new Date(param);
   if (date.toString() !== 'Invalid Date') {
@@ -15,5 +15,5 @@ function timestampHandler(req, res) {
 }
 
 module.exports = {
-  timestampHandler,
+  timeStampHandler,
 };

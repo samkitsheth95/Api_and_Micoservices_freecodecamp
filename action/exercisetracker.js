@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
-const { exerciserecord } = require('../model/index');
+const { exerciseRecord } = require('../model/index');
 
 function newUserHandler(req, res) {
-  exerciserecord.create({ ...req.body }).then((result) => {
+  exerciseRecord.create({ ...req.body }).then((result) => {
     res.status(200).json({ username: result.username, _id: result._id });
   }).catch(() => {
     res.status(400).send('username already taken');
@@ -16,7 +16,7 @@ function addExerciseHandler(req, res) {
     duration: Number(req.body.duration),
     date: (req.body.date ? new Date(req.body.date) : new Date()),
   };
-  exerciserecord.findOneAndUpdate({ _id }, {
+  exerciseRecord.findOneAndUpdate({ _id }, {
     $push: { exercise: update },
   }, {
     new: true,
@@ -35,7 +35,7 @@ function addExerciseHandler(req, res) {
 function getExerciseHandler(req, res) {
   const start = (req.query.from ? new Date(req.query.from) : new Date('1970-01-01'));
   const end = (req.query.to ? new Date(req.query.to) : new Date());
-  exerciserecord.findOne({
+  exerciseRecord.findOne({
     _id: req.query.userId,
     exercise: {
       $elemMatch: {
@@ -69,7 +69,7 @@ function getExerciseHandler(req, res) {
 
 
 function getUsersHandler(req, res) {
-  exerciserecord.find().select({ username: 1, _id: 1 })
+  exerciseRecord.find().select({ username: 1, _id: 1 })
     .then((result) => {
       res.status(200).send(result);
     }).catch(() => {

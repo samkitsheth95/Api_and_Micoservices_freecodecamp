@@ -1,4 +1,4 @@
-function fileanalyseHandler(req, res) {
+function fileAnalyseHandler(req, res) {
   res.status(200).json({
     name: req.files[0].originalname,
     type: req.files[0].mimetype,
@@ -7,5 +7,5 @@ function fileanalyseHandler(req, res) {
 }
 
 module.exports = {
-  fileanalyseHandler,
+  fileAnalyseHandler,
 };

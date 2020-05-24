@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const exerciserecord = new Schema({
+const exerciseRecord = new Schema({
   username: { type: String, required: true, unique: true },
   exercise: [
     {
@@ -13,4 +13,4 @@ const exerciserecord = new Schema({
   ],
 });
 
-module.exports = mongoose.model('exerciserecord', exerciserecord);
+module.exports = mongoose.model('exerciseRecord', exerciseRecord);

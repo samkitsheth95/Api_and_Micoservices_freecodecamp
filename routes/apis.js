@@ -2,10 +2,10 @@ const express = require('express');
 
 const app = express();
 
-const { timestampHandler } = require('../action/timestamp');
-const { whoamiHandler } = require('../action/whoami');
-const { urlshortnercreatorHandler } = require('../action/urlshortner');
-const { fileanalyseHandler } = require('../action/fileanalyse');
+const { timeStampHandler } = require('../action/timestamp');
+const { whoAmIHandler } = require('../action/whoami');
+const { urlShortnerCreatorHandler } = require('../action/urlshortner');
+const { fileAnalyseHandler } = require('../action/fileanalyse');
 const {
   newUserHandler,
   addExerciseHandler,
@@ -13,10 +13,10 @@ const {
   getUsersHandler,
 } = require('../action/exercisetracker');
 
-app.get('/timestamp*', timestampHandler);
-app.get('/whoami', whoamiHandler);
-app.get('/shorturl/new(*)', urlshortnercreatorHandler);
-app.post('/fileanalyse', fileanalyseHandler);
+app.get('/timestamp*', timeStampHandler);
+app.get('/whoami', whoAmIHandler);
+app.get('/shorturl/new(*)', urlShortnerCreatorHandler);
+app.post('/fileanalyse', fileAnalyseHandler);
 app.post('/exercise/new-user', newUserHandler);
 app.post('/exercise/add', addExerciseHandler);
 app.get('/exercise/log', getExerciseHandler);

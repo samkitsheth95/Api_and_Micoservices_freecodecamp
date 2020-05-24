@@ -9,9 +9,9 @@ mongoose
   // eslint-disable-next-line no-console
   .then(() => console.log('DB connnection successful!'));
 
-const urlsaver = require('./urlsaver');
-const exerciserecord = require('./exerciserecord');
+const urlSaver = require('./urlsaver');
+const exerciseRecord = require('./exerciserecord');
 
 module.exports = {
-  urlsaver, exerciserecord,
+  urlSaver, exerciseRecord,
 };

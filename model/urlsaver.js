@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const urlsave = new Schema({
+const urlSave = new Schema({
   originalUrl: { type: String, required: true },
   shortUrl: { type: String, required: true },
 });
 
-module.exports = mongoose.model('urlsaver', urlsave);
+module.exports = mongoose.model('urlSaver', urlSave);
