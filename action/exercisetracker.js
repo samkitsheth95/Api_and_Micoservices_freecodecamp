@@ -67,8 +67,19 @@ function getExerciseHandler(req, res) {
   });
 }
 
+
+function getUsersHandler(req, res) {
+  exerciserecord.find().select({ username: 1, _id: 1 })
+    .then((result) => {
+      res.status(200).send(result);
+    }).catch(() => {
+      res.status(500).send('Some err occured');
+    });
+}
+
 module.exports = {
   newUserHandler,
   addExerciseHandler,
   getExerciseHandler,
+  getUsersHandler,
 };
